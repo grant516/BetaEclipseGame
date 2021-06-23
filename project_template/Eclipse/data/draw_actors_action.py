@@ -1,5 +1,5 @@
-from game.action import Action
-from game import constants
+from data.action import Action
+from data import constants
 
 import arcade
 
@@ -37,7 +37,7 @@ class DrawActorsAction(Action):
         for ball in cast["balls"]:
             self._output_service.draw_actor(ball)
 
-        paddle = cast["paddle"][0] # there's only one
+        paddle = cast["player"][0] # there's only one
         self._output_service.draw_actor(paddle)
 
         self._output_service.flush_buffer()

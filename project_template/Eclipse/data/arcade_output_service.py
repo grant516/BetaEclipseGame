@@ -1,5 +1,5 @@
 import sys
-from game import constants
+from data import constants
 
 import arcade
 

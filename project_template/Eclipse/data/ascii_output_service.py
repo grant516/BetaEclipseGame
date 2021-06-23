@@ -1,5 +1,5 @@
 import sys
-from game import constants
+from data import constants
 from asciimatics.widgets import Frame
 
 class AsciiOutputService:

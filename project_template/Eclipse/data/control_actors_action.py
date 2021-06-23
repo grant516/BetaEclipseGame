@@ -1,5 +1,5 @@
-from game import constants
-from game.action import Action
+from data import constants
+from data.action import Action
 
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
@@ -26,7 +26,7 @@ class ControlActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        direction = self._input_service.get_direction().scale(constants.PADDLE_MOVE_SCALE)
-        paddle = cast["paddle"][0] # there's only one in the cast
+        direction = self._input_service.get_direction().scale(constants.PLAYER_MOVE_SCALE)
+        paddle = cast["player"][0] # there's only one in the cast
         paddle.change_x = direction.get_x()
         paddle.change_y = direction.get_y()
