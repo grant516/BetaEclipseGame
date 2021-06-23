@@ -1,5 +1,5 @@
 import sys
-from game.point import Point
+from data.point import Point
 from asciimatics.event import KeyboardEvent
 
 class InputServiceAscii:

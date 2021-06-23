@@ -1,6 +1,6 @@
-from game import constants
-from game.action import Action
-from game.point import Point
+from data import constants
+from data.action import Action
+from data.point import Point
 
 class MoveActorsAction(Action):
     """A code template for moving actors. The responsibility of this class of

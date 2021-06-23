@@ -1,5 +1,5 @@
-from game.point import Point
-from game import constants
+from data.point import Point
+from data import constants
 
 import arcade
 

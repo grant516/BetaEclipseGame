@@ -1,5 +1,5 @@
 import arcade
-from game import constants
+from data import constants
 
 class Batter(arcade.Window):
     def __init__(self, cast, script, input_service):
