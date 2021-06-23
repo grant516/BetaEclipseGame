@@ -4,16 +4,16 @@ from data import constants
 from data.point import Point
 from data.control_actors_action import ControlActorsAction
 from data.draw_actors_action import DrawActorsAction
-from data.handle_collisions_action import HandleCollisionsAction
+from data.collisions import Collisions
 from data.move_actors_action import MoveActorsAction
 from data.arcade_input_service import ArcadeInputService
 from data.arcade_output_service import ArcadeOutputService
 
 from data.player import Player
 from data.brick import Brick
-from data.balls import Balls
+from data.enemy import Enemy
 
-from data.batter import Batter
+from data.director import Director
 import arcade
 
 def main():
@@ -27,7 +27,7 @@ def main():
     cast["balls"] = []
 
     for i in range(constants.NUM_BALLS):
-        balls = Balls()
+        balls = Enemy()
         cast["balls"].append(balls)
         pass
 
@@ -51,7 +51,7 @@ def main():
     
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
-    handle_collisions_action = HandleCollisionsAction()
+    handle_collisions_action = Collisions()
     draw_actors_action = DrawActorsAction(output_service)
     
     script["input"] = [control_actors_action]
@@ -59,8 +59,8 @@ def main():
     script["output"] = [draw_actors_action]
 
     # start the data
-    batter = Batter(cast, script, input_service)
-    batter.setup()
+    director = Director(cast, script, input_service)
+    director.setup()
     arcade.run()
 
 

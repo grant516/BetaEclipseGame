@@ -1,7 +1,7 @@
 import arcade
 from data import constants
 
-class Batter(arcade.Window):
+class Director(arcade.Window):
     def __init__(self, cast, script, input_service):
         """Initialize the game
         """

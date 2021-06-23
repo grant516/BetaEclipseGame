@@ -1,5 +1,8 @@
 import os
 
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
 MAX_X = 800
 MAX_Y = 600
 NUM_BALLS = 5
