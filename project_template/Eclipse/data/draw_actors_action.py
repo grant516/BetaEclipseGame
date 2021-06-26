@@ -29,10 +29,10 @@ class DrawActorsAction(Action):
         """
         self._output_service.clear_screen()
 
-        bricks = cast["bricks"]
+        """bricks = cast["bricks"]
 
         for brick in bricks:
-            self._output_service.draw_actor(brick)
+            self._output_service.draw_actor(brick)"""
 
         for ball in cast["balls"]:
             self._output_service.draw_actor(ball)
