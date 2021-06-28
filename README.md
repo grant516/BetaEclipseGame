@@ -12,7 +12,7 @@ In order to beat the game the player must collect all of the hidden keys and bea
 ## How to Download the Game
 
 
-## Classes and Functions for the game
+## Classes and Functions for the Game
 actor.py
 	player
 	enemies
@@ -45,18 +45,4 @@ lighting.py
 screens.py
 	title screen, pause menu, end credits/game over, how to play
 
-	
-priority 1:
-	movement
-	enemy tracking
-	collisions
-priority 2:
-	health/damage
-	attacking
-	dealing with keys
-	sprites
-priority 3:
-	boss fight
-	sounds
-	and other extras
 	
