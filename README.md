@@ -13,36 +13,36 @@ In order to beat the game the player must collect all of the hidden keys :old_ke
 
 
 ## Classes and Functions for the Game
-actor.py
-	player
-	enemies
-	boss
+*actor.py
+	-player
+	-enemies
+	-boss
 
-director.py
-	directs the flow of the game
+*director.py
+	-directs the flow of the game
 
-main.py
+*main.py
 
 
-control-actors-action.py
-	attacking
-	collisons
-	damage(3 hits)
-	player-health(3 hearts)
+*control-actors-action.py
+	-attacking
+	-collisons
+	-damage(3 hits)
+	-player-health(3 hearts)
 
-move-actor-action.py
-	up/down/left/right movement
-	enemy "AI"
-	boss "AI"
+*move-actor-action.py
+	-up/down/left/right movement
+	-enemy "AI"
+	-boss "AI"
 
-entities.py
-	chests,keys,etc
+*entities.py
+	-chests,keys,etc
 
-lighting.py
-	circle of light around the player
-	prevents player from seeing the entire map
+*lighting.py
+	-circle of light around the player
+	-prevents player from seeing the entire map
 
-screens.py
-	title screen, pause menu, end credits/game over, how to play
+*screens.py
+	-title screen, pause menu, end credits/game over, how to play
 
 	
