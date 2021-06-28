@@ -1,7 +1,7 @@
 # cse210-project
 ## Eclipse
-This is Eclipse. It is a game where the player travels through a dungeon fighting enemies. 
-In order to beat the game the player must collect all of the hidden keys and beat the final boss.
+:waning_crescent_moon: This is Eclipse. :waxing_crescent_moon: It is a game where the player travels through a dungeon fighting enemies. 
+In order to beat the game the player must collect all of the hidden keys :old_key: and beat the final boss. :crossed_swords:
 
 ## Contributors
 * Grant Shirley
