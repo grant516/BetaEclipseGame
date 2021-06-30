@@ -1,5 +1,8 @@
 import os
 
+RANGE = 10
+TRACKING = 50
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
@@ -30,3 +33,5 @@ ENEMY_IMAGE = os.path.join(PATH, "..", "assets/goomba.png")
 PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
 BRICK_IMAGE = os.path.join(PATH, "..", "assets/brick-0.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
+
+

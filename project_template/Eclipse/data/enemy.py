@@ -21,10 +21,10 @@ class Enemy(arcade.Sprite):
 
         #This is where they are
         direction_list = [-constants.ENEMY_SPEED,constants.ENEMY_SPEED]
-        self.change_x = random.choice(direction_list)
-        self.change_y = random.choice(direction_list)
+        self.change_x = 0#random.choice(direction_list)
+        self.change_y = 0#random.choice(direction_list)
 
-        self._health = 300
+        self._health = 5
 
     def get_health(self):
         return(self._health)
@@ -32,17 +32,17 @@ class Enemy(arcade.Sprite):
     def sub_health(self):
         self._health -= 1
 
-    def bounce_horizontal(self):
-        if(self.change_y < 0):
-            self.change_y = constants.ENEMY_SPEED
-        elif(self.change_y > 0):
-            self.change_y = -constants.ENEMY_SPEED
+    # def bounce_horizontal(self):
+    #     if(self.change_y < 0):
+    #         self.change_y = constants.ENEMY_SPEED
+    #     elif(self.change_y > 0):
+    #         self.change_y = -constants.ENEMY_SPEED
 
-    def bounce_vertical(self):
-        if(self.change_x < 0):
-            self.change_x = constants.ENEMY_SPEED
-        elif(self.change_x > 0):
-            self.change_x = -constants.ENEMY_SPEED
+    # def bounce_vertical(self):
+    #     if(self.change_x < 0):
+    #         self.change_x = constants.ENEMY_SPEED
+    #     elif(self.change_x > 0):
+    #         self.change_x = -constants.ENEMY_SPEED
 
     def change_x_neg(self):
         self.change_x = -constants.ENEMY_SPEED
