@@ -9,3 +9,18 @@ class Player(arcade.Sprite):
 
         self.center_x = int(constants.MAX_X / 2)
         self.center_y = int(constants.PLAYER_Y)
+
+        self._health = 100
+        self._game_over = False
+
+    def get_health(self):
+        return(self._health)
+
+    def sub_health(self):
+        self._health -= 1
+
+    def get_game_over(self):
+        return(self._game_over)
+
+    def set_game_over(self):
+        self._game_over = True

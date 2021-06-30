@@ -24,11 +24,11 @@ def main():
     player = Player()
     cast["player"] = [player]
 
-    cast["balls"] = []
+    cast["enemy"] = []
 
-    for i in range(constants.NUM_BALLS):
-        balls = Enemy()
-        cast["balls"].append(balls)
+    for i in range(constants.NUM_ENEMY):
+        enemy = Enemy()
+        cast["enemy"].append(enemy)
         pass
 
     cast["bricks"] = []

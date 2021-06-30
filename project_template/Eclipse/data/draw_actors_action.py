@@ -34,8 +34,8 @@ class DrawActorsAction(Action):
         for brick in bricks:
             self._output_service.draw_actor(brick)"""
 
-        for ball in cast["balls"]:
-            self._output_service.draw_actor(ball)
+        for enemy in cast["enemy"]:
+            self._output_service.draw_actor(enemy)
 
         paddle = cast["player"][0] # there's only one
         self._output_service.draw_actor(paddle)
