@@ -24,12 +24,19 @@ class Enemy(arcade.Sprite):
         self.change_x = random.choice(direction_list)
         self.change_y = random.choice(direction_list)
 
+        self._health = 300
+
+    def get_health(self):
+        return(self._health)
+
+    def sub_health(self):
+        self._health -= 1
+
     def bounce_horizontal(self):
         if(self.change_y < 0):
             self.change_y = constants.ENEMY_SPEED
         elif(self.change_y > 0):
             self.change_y = -constants.ENEMY_SPEED
-
 
     def bounce_vertical(self):
         if(self.change_x < 0):

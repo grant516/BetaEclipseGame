@@ -5,7 +5,7 @@ class Director(arcade.Window):
     def __init__(self, cast, script, input_service):
         """Initialize the game
         """
-        super().__init__(constants.MAX_X, constants.MAX_Y, "Batter")
+        super().__init__(constants.MAX_X, constants.MAX_Y, "director")
 
         self._cast = cast
         self._script = script
@@ -16,6 +16,10 @@ class Director(arcade.Window):
 
     def on_update(self, delta_time):
         self._cue_action("update")
+        if(self._cast["player"][0].get_game_over()):
+            print("game over")
+            #self.texture = arcade.load_texture("game_over.png")
+
 
     def on_draw(self):
         self._cue_action("output")
