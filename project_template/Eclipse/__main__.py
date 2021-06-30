@@ -9,6 +9,7 @@ from data.move_actors_action import MoveActorsAction
 from data.arcade_input_service import ArcadeInputService
 from data.arcade_output_service import ArcadeOutputService
 
+
 from data.player import Player
 from data.brick import Brick
 from data.enemy import Enemy

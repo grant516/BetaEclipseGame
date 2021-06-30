@@ -46,4 +46,11 @@ class ArcadeInputService:
         velocity = Point(x, y)
         return velocity
             
-
+    def get_attack(self):
+            is_attack = False
+            event = self._screen.get_event()
+            if isinstance(event, KeyboardEvent):
+                if event.key_code == 32:
+                    is_attack = True
+                    print("ATTACK")
+            return is_attack
