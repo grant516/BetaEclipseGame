@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="walls" tilewidth="32" tileheight="32" tilecount="26" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark0.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark1.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark2.png"/>
+  </tile>
+  <tile id="3">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark3.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark4.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark5.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/brick_dark6.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick1.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick2.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick3.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick4.png"/>
+  </tile>
+  <tile id="11">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick5.png"/>
+  </tile>
+  <tile id="12">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick6.png"/>
+  </tile>
+  <tile id="13">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick7.png"/>
+  </tile>
+  <tile id="14">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick8.png"/>
+  </tile>
+  <tile id="15">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick9.png"/>
+  </tile>
+  <tile id="16">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick10.png"/>
+  </tile>
+  <tile id="17">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick11.png"/>
+  </tile>
+  <tile id="18">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/stone_brick12.png"/>
+  </tile>
+  <tile id="19">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines0.png"/>
+  </tile>
+  <tile id="20">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines1.png"/>
+  </tile>
+  <tile id="21">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines2.png"/>
+  </tile>
+  <tile id="22">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines3.png"/>
+  </tile>
+  <tile id="23">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines4.png"/>
+  </tile>
+  <tile id="24">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines5.png"/>
+  </tile>
+  <tile id="25">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/wall_vines6.png"/>
+  </tile>
+ </tileset>
+ <layer id="1" name="walls" width="100" height="100">
+  <properties>
+   <property name="walls" value=""/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztm8GOHCEMRPe6hz3l//81Ga1GQS0aV5VtMD2U1Ic0xja8xnikzdfXWH/+PT+GTWt7farpx/msFsPjbV+Zx0vKXlfh5OHxJFU5TyyPT9YMTjN57FzXEe3Ao82R6QdUHquZMrF6e5/B47oPPQ7oHYSur8pZq8Yjcs3MHo72/M3+U3lE+mJ59HQ9kzPqM6IRj6iznnE+vLa9Omn5VfsNLw9GzN5EaDUPNObVtiKPCCa78FDmvvPy9BtK3+lRFI+XejxG9jN49PpP5p5g99fLROERxW8mD2vvo3i0MT2/PTLOcAUeqCJ5tHOvXNA5hwf3nvWdeQ89lUdmnMOD1+48rLvqKTzQx/KN7rPSNyG9QzUeao+F+mZyQGxYnzvyGM1XehslH4ZJlD/ErhqPa0ylxjC5fAf5ezoPJda34DOaB/qNjWzQWMrckR92vZZW8mjt7+ZU5HHn29s7vbSahzUHvbPUGBE8IrU7D+8dtCuPqFo/mseOIeOW3Y482DWrPEa1OSq33ntGVXggUnm0c9H36DjiH5V6RzOKui8Zf+g8pkaqeXl7QZWHpwc7PO7zse49z76P8mBso3lExFvBI0sM28j7fFceGffKnQ4PjAfrT61nmTwUX0/g8d08GTxY7cKj50f12WNx5aLko+TS8/epPLLqlfL36FbsaB7Me1TVeaD/dxSJ/WQeb7sZ9zmbhxoLtRnltZJHhCJ5RNh5eVhjil/m+/bKy4NlsSMPr082/uFhzz08bDtlTPUb0WOh8V/P6G/XEB9onE/mwfi462+j7+mKPJA9i8gpYi+Zc4bEQda9gke2TTUebaxdeSDfnDXfWx925IHmw9p69moFD7ZmqX6QvDJ4vG2V+3o2D9TX7jxUreBh2R8ea3hYe+3lEdUPKbaKfTtvNo+Rz8o82EdRJg8rv977qjxYVeXB2LSxqvPY9XwgNlc7tAcbaQaPDK3m0bM7PHw2KA+vHWtjqRoPtNZF8EDt0LNRkYfSgyl3z+GBzZ3Boo3D5NZ7f+cH5db6qMhjpiJ4oO8OD0zMvt+9v+5lb2+9vZXlg7HJmBulCB7t+1H9Gs09PH4VyUPd88Pjv9R9V+LswCP7UfNX7norTnUe2fL0LIdHjqrziDjLrM1KHR61pO7rbB6oD894BWXxYNdenYfSC6lxoseQ8Z59dR7Xf2f0umpPM4MH+x3O5BEt69x518buo/dsIDEr87Bir+ah1Okn8/DaeHiod2YlHtY9wfpB7DzjvZje/qUaj9EYuuYVvczTeHjyV/chq79S12LF9Nb/qHqVpYxv0cuiEo87H1mMkPo4U5m1KmJ+tt/Mb1HRDB4Z68rmUfFsoDaKj1GvhDxRmhGDySXCBo21cq13qpJL1O+lI10Z/flT5a2nWTV3dx6r76doIf35rvnvJqamzf7G0FifyCNjLvO7CD3Dle4BRZk8vOtEeczQDEaZ3ze63yO7Sjx6ijpXEXyZbxvxZa2nQi1hNbMWRvI48uvwqKXDY43+Akr1YGw=
+  </data>
+ </layer>
+</map>
