@@ -27,6 +27,8 @@ class ControlActorsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         direction = self._input_service.get_direction().scale(constants.PLAYER_MOVE_SCALE)
-        paddle = cast["player"][0] # there's only one in the cast
-        paddle.change_x = direction.get_x()
-        paddle.change_y = direction.get_y()
+        player = cast["player"][0] # there's only one in the cast
+        attack = self._input_service.get_attack()
+        player.set_attack(attack)
+        player.change_x = direction.get_x()
+        player.change_y = direction.get_y()

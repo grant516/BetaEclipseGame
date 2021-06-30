@@ -30,6 +30,7 @@ class Director(arcade.Window):
 
     def on_key_release(self, symbol, modifiers):
         self._input_service.remove_key(symbol, modifiers)
+        self._input_service.end_attack() #this will end the attack so it doesn't kill everything for the rest of the game.
         self._cue_action("input")
 
     def _cue_action(self, tag):

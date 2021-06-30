@@ -16,6 +16,8 @@ class ArcadeInputService:
     def __init__(self):
         """The class constructor."""
         self._keys = []
+
+        self._attack = False
     
     def set_key(self, key, modifiers):
         #Ignoring modifies ar this point...
@@ -47,10 +49,10 @@ class ArcadeInputService:
         return velocity
             
     def get_attack(self):
-            is_attack = False
-            event = self._screen.get_event()
-            if isinstance(event, KeyboardEvent):
-                if event.key_code == 32:
-                    is_attack = True
-                    print("ATTACK")
-            return is_attack
+        if arcade.key.SPACE in self._keys:
+                self._attack = True
+                #print("ATTACK")
+        return self._attack
+
+    def end_attack(self):
+        self._attack = False

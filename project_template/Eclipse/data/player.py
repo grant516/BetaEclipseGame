@@ -12,6 +12,7 @@ class Player(arcade.Sprite):
 
         self._health = 100
         self._game_over = False
+        self._attack = False
 
     def get_health(self):
         return(self._health)
@@ -24,3 +25,9 @@ class Player(arcade.Sprite):
 
     def set_game_over(self):
         self._game_over = True
+
+    def get_attack(self):
+        return(self._attack)
+
+    def set_attack(self, state):
+        self._attack = state
