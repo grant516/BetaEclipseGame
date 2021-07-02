@@ -23,6 +23,8 @@ BRICK_SPACE = 10
 
 ENEMY_CAN_DIE = False
 
+TILE_SCALING = 0.5
+
 """BALL_IMAGE = "images/goomba.png"
 PADDLE_IMAGE = "images/paddle-0.png"
 BRICK_IMAGE = "images/brick-0.png"""
@@ -33,5 +35,5 @@ ENEMY_IMAGE = os.path.join(PATH, "..", "assets/goomba.png")
 PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
 BRICK_IMAGE = os.path.join(PATH, "..", "assets/brick-0.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
-
+MAP = os.path.join(PATH, "..", "assets/map.tmx")
 

@@ -1,6 +1,7 @@
 import arcade
 from data import constants
 
+
 class Director(arcade.Window):
     def __init__(self, cast, script, input_service):
         """Initialize the game
@@ -11,8 +12,21 @@ class Director(arcade.Window):
         self._script = script
         self._input_service = input_service
 
+        self.wall_list = arcade.SpriteList()
+
     def setup(self):
+        
+        maze_map = 'Maze'
         arcade.set_background_color(arcade.color.BLACK)
+        my_map = arcade.tilemap.read_tmx(constants.MAP)
+        self.wall_list = arcade.tilemap.process_layer(map_object=my_map,
+                                                      layer_name = maze_map,
+                                                      scaling = constants.TILE_SCALING)
+                                                      #use_spatial_hash = True
+        self.wall_list.draw()
+
+        if my_map.background_color:
+            arcade.set_background_color(my_map.background_color)
 
     def on_update(self, delta_time):
         self._cue_action("update")
