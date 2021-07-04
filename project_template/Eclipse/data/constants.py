@@ -33,7 +33,8 @@ BRICK_IMAGE = "images/brick-0.png"""
 PATH = os.path.dirname(os.path.abspath(__file__))
 ENEMY_IMAGE = os.path.join(PATH, "..", "assets/goomba.png")
 PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
-BRICK_IMAGE = os.path.join(PATH, "..", "assets/brick-0.png")
+#BRICK_IMAGE = os.path.join(PATH, "..", "assets/brick-0.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
 MAP = os.path.join(PATH, "..", "assets/map.tmx")
+#MAP = ":Eclipse:/assets/map.tmx"
 
