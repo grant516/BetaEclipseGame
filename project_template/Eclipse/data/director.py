@@ -16,17 +16,19 @@ class Director(arcade.Window):
 
     def setup(self):
         
-        maze_map = 'Maze'
+        maze_map = 'Platforms'
         arcade.set_background_color(arcade.color.BLACK)
         my_map = arcade.tilemap.read_tmx(constants.MAP)
-        self.wall_list = arcade.tilemap.process_layer(map_object=my_map,
-                                                      layer_name = maze_map,
-                                                      scaling = constants.TILE_SCALING)
-                                                      #use_spatial_hash = True
-        self.wall_list.draw()
-
+        self.wall_list = arcade.tilemap.process_layer(my_map,
+                                                      maze_map,
+                                                      constants.TILE_SCALING,
+                                                      use_spatial_hash=True)
+        
         if my_map.background_color:
             arcade.set_background_color(my_map.background_color)
+
+        self.physics_engine = arcade.PhysicsEnginePlatformer(constants.PLAYER_IMAGE,
+                                                             self.wall_list)
 
     def on_update(self, delta_time):
         self._cue_action("update")
@@ -37,6 +39,9 @@ class Director(arcade.Window):
 
     def on_draw(self):
         self._cue_action("output")
+        self.wall_list.draw()
+
+        
 
     def on_key_press(self, symbol, modifiers):
         self._input_service.set_key(symbol, modifiers)
