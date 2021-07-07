@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="35" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="walls" tilewidth="32" tileheight="32" tilecount="14" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall00.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall01.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall02.png"/>
+  </tile>
+  <tile id="3">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall03.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall04.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall05.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall06.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall07.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall08.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall09.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall10.png"/>
+  </tile>
+  <tile id="11">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall11.png"/>
+  </tile>
+  <tile id="12">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall12.png"/>
+  </tile>
+  <tile id="13">
+   <image width="32" height="32" source="Dropbox/My PC (LAPTOP-7KB5EHIU)/Downloads/crawl-tiles Oct-5-2010/crawl-tiles Oct-5-2010/dc-dngn/wall/crystal_wall13.png"/>
+  </tile>
+ </tileset>
+ <layer id="1" name="walls" width="35" height="35">
+  <data encoding="base64" compression="zlib">
+   eJzVlUsOwCAIRN15/xt3a0mRGX7aSUxTQ/FZcRjjrTn6ZK1VySJzR1gmODpYEO14PCzIHq0cGSwylmViz4jdL/MNw2LFe9aIsHiEnjVyD//EotWVVr8IC+M9SG42fi7PiCdE7+6aI8MzoyyeXFp+tM9Us+z0VZO3sCAxWX4SZVnnsnkslixPkDFW7WaxVO0pq99m/1/U+z09zcMi39GzrmZBuL5ivCyIFzJC+ztSc9m+gvamHV+l/2pC71aHOvdtqaLnMEN+d0qMT5yqYcmhzd90rzrlYXkADAcF2w==
+  </data>
+ </layer>
+</map>
