@@ -16,12 +16,12 @@ class Director(arcade.Window):
 
     def setup(self):
         
-        maze_map = 'Platforms'
+        maze_map = 'walls'
         arcade.set_background_color(arcade.color.BLACK)
         my_map = arcade.tilemap.read_tmx(constants.MAP)
-        self.wall_list = arcade.tilemap.process_layer(my_map,
-                                                      maze_map,
-                                                      constants.TILE_SCALING,
+        self.wall_list = arcade.tilemap.process_layer(map_object = my_map,
+                                                      layer_name = maze_map,
+                                                      scaling = constants.TILE_SCALING,
                                                       use_spatial_hash=True)
         
         if my_map.background_color:
