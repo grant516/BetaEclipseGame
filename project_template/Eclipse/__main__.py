@@ -30,19 +30,7 @@ def main():
     for i in range(constants.NUM_ENEMY):
         enemy = Enemy()
         cast["enemy"].append(enemy)
-        pass
-
-    # cast["bricks"] = []
-    # for x in range(constants.BRICK_WIDTH * 2,
-    #             constants.MAX_X - constants.BRICK_WIDTH * 2,
-    #             constants.BRICK_WIDTH + constants.BRICK_SPACE):
-    #     for y in range(int(constants.MAX_Y * .7),
-    #                 int(constants.MAX_Y * .9),
-    #                 constants.BRICK_HEIGHT + constants.BRICK_SPACE):
-    #         brick = Brick(x, y)
-    #         cast["bricks"].append(brick)
-    
-
+        pass  
 
     # create the script {key: tag, value: list}
     script = {}
