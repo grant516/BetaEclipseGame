@@ -36,5 +36,4 @@ PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
 #BRICK_IMAGE = os.path.join(PATH, "..", "assets/brick-0.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
 MAP = os.path.join(PATH, "..", "assets/map.tmx")
-#MAP = ":Eclipse:/assets/map.tmx"
 
