@@ -39,7 +39,6 @@ class ArcadeInputService:
             x = -1
         elif arcade.key.RIGHT in self._keys:
             x = 1
-
         if arcade.key.UP in self._keys:
             y = 1
         elif arcade.key.DOWN in self._keys:
