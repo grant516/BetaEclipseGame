@@ -9,7 +9,11 @@ In order to beat the game the player must collect all of the hidden keys :old_ke
 * Colton Kramer
 * Krystiane Otis
 
-## How to Download the Game
+## How to Run the Game
+* Open the project template folder
+* Open the Eclipse Folder
+* Open __main__.py
+* Click Run
 
 
 ## Classes and Functions for the Game
