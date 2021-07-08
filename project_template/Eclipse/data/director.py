@@ -1,4 +1,5 @@
 import arcade
+from arcade import sprite_list
 from data import constants
 
 
@@ -12,9 +13,20 @@ class Director(arcade.Window):
         self._script = script
         self._input_service = input_service
 
+        self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
 
     def setup(self):
+
+        #setting up the player so it works...
+        """image_source = os.path.join(PATH, "assets/player.png")
+        self.player_sprite = arcade.Sprite(image_source)
+        self.player_sprite.center_x = 128
+        self.player_sprite.center_y = 128
+        self.player_list.append(self.player_sprite)"""
+        player_sprite = self._cast["player"][0]
+
+        self.player_list.append(player_sprite)
         
         maze_ground = 'Ground'
         maze_walls = 'Walls'
@@ -22,22 +34,22 @@ class Director(arcade.Window):
         my_map = arcade.tilemap.read_tmx(constants.MAP)
         self.ground_list = arcade.tilemap.process_layer(map_object = my_map,
                                                       layer_name = maze_ground,
-                                                      scaling = constants.TILE_SCALING)
-                                                      #use_spatial_hash=True)
+                                                      scaling = constants.TILE_SCALING,
+                                                      use_spatial_hash=True)
 
         self.wall_list = arcade.tilemap.process_layer(map_object = my_map,
                                                       layer_name = maze_walls,
-                                                      scaling = constants.TILE_SCALING)
-                                                      #use_spatial_hash=True)
+                                                      scaling = constants.TILE_SCALING,
+                                                      use_spatial_hash=True)
         
         if my_map.background_color:
             arcade.set_background_color(my_map.background_color)
 
-        self.physics_engine = arcade.PhysicsEnginePlatformer(constants.PLAYER_IMAGE,
-                                                            #  self.ground_list,
-                                                             self.wall_list,0)
+        self.physics_engine = arcade.PhysicsEnginePlatformer(player_sprite, self.wall_list, 0)
 
     def on_update(self, delta_time):
+        self.physics_engine.update()
+
         self._cue_action("update")
         if(self._cast["player"][0].get_game_over()):
             print("game over")

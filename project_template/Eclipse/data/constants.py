@@ -23,7 +23,7 @@ BRICK_SPACE = 10
 
 ENEMY_CAN_DIE = False
 
-TILE_SCALING = 1.5
+TILE_SCALING = 1
 
 
 PATH = os.path.dirname(os.path.abspath(__file__))
