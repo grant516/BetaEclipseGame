@@ -30,5 +30,5 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 ENEMY_IMAGE = os.path.join(PATH, "..", "assets/goomba.png")
 PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
-MAP = os.path.join(PATH, "..", "assets/test_map.tmx")
+MAP = os.path.join(PATH, "..", "assets/final_map.tmx")
 # MAP = ":resources:/tmx_maps/map.tmx"
