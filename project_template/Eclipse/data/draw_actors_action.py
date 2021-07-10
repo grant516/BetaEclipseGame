@@ -27,7 +27,7 @@ class DrawActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        self._output_service.clear_screen()
+        #self._output_service.clear_screen()
 
         """bricks = cast["bricks"]
 
@@ -41,4 +41,3 @@ class DrawActorsAction(Action):
         self._output_service.draw_actor(paddle)
 
         self._output_service.flush_buffer()
-

@@ -15,9 +15,13 @@ class Enemy(arcade.Sprite):
         super().__init__(constants.ENEMY_IMAGE)
 
         #Below is their original spot on the board
-        self.center_x = random.randrange(constants.SCREEN_WIDTH)
+        #self.center_x = random.randrange(constants.SCREEN_WIDTH)
+#
+        #self.center_y = random.randrange(constants.SCREEN_HEIGHT)
 
-        self.center_y = random.randrange(constants.SCREEN_HEIGHT)
+        self.center_x = random.randrange(constants.MAP_WIDTH)
+
+        self.center_y = random.randrange(constants.MAP_HEIGHT)
 
         #This is where they are
         direction_list = [-constants.ENEMY_SPEED,constants.ENEMY_SPEED]

@@ -32,6 +32,8 @@ def main():
         cast["enemy"].append(enemy)
         pass  
 
+    #cast["background"] = None
+
     # create the script {key: tag, value: list}
     script = {}
 
@@ -48,7 +50,7 @@ def main():
     script["output"] = [draw_actors_action]
 
     # start the data
-    director = Director(cast, script, input_service)
+    director = Director(cast, script, input_service, output_service)
     director.setup()
     arcade.run()
 
