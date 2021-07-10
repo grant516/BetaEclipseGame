@@ -7,8 +7,11 @@ class Player(arcade.Sprite):
     def __init__(self):
         super().__init__(constants.PLAYER_IMAGE)
 
-        self.center_x = int(constants.MAX_X / 2)
-        self.center_y = int(constants.PLAYER_Y)
+        #self.center_x = int(constants.MAX_X / 2)
+        #self.center_y = int(constants.PLAYER_Y)
+
+        self.center_x = 128
+        self.center_y = 128
 
         self._health = 100
         self._game_over = False

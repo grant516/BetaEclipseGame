@@ -42,34 +42,6 @@ class Collisions(Action):
         enemy_x = enemy.center_x
         enemy_y = enemy.center_y
 
-        # Check for bounce on walls
-        # if enemy_x <= 0 or enemy_x >= constants.MAX_X:
-        #     enemy.bounce_vertical()
-
-        # if enemy_y >= constants.MAX_Y:
-        #     enemy.bounce_horizontal()
-        
-        # if not constants.ENEMY_CAN_DIE and enemy_y <= 0:
-        #     enemy.bounce_horizontal()
-    
-    #def _handle_paddle_bounce(self, enemy, paddle):
-        # This makes use of the `Sprite` functionality
-        # if paddle.collides_with_sprite(enemy):
-        #     # Ball and paddle collide!
-        #     enemy.bounce_horizontal()
-
-    # def _handle_brick_collision(self, enemy, bricks):
-    #     brick_to_remove = None
-
-    #     #for brick in bricks:
-    #         # This makes use of the `Sprite` functionality
-    #         # if enemy.collides_with_sprite(brick):
-    #         #     #enemy.bounce_horizontal()
-    #         #     brick_to_remove = brick
-        
-    #     if brick_to_remove != None:
-    #         bricks.remove(brick_to_remove)
-
     def _is_off_screen(self, enemy):
         return enemy.center_y < 0
 
@@ -96,11 +68,25 @@ class Collisions(Action):
                 enemy.change_x_neg()
             elif enemy_x < player_x and abs(enemy_x - player_x) < constants.TRACKING and abs(enemy_y - player_y) < constants.TRACKING:
                 enemy.change_x_pos()
+            else:
+                enemy.change_x = 0
 
             if enemy_y > player_y and abs(enemy_y - player_y) < constants.TRACKING and abs(enemy_x - player_x) < constants.TRACKING:
                 enemy.change_y_neg()
             elif enemy_y < player_y and abs(enemy_y - player_y) < constants.TRACKING and abs(enemy_x - player_x) < constants.TRACKING:
                 enemy.change_y_pos()
+            else:
+                enemy.change_y = 0
+
+        ## If the enemy hit a wall, reverse
+        #if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
+        #    enemy.change_x *= -1
+        ## If the enemy hit the left boundary, reverse
+        #elif enemy.boundary_left is not None and enemy.left < enemy.boundary_left:
+        #    enemy.change_x *= -1
+        ## If the enemy hit the right boundary, reverse
+        #elif enemy.boundary_right is not None and enemy.right > enemy.boundary_right:
+        #    enemy.change_x *= -1
         
         
     
