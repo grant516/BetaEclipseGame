@@ -47,3 +47,11 @@ class Enemy(arcade.Sprite):
 
     def change_y_pos(self):
         self.change_y = constants.ENEMY_SPEED
+
+    def change_center_x(self):
+        self.center_x = random.randrange(constants.MAP_WIDTH)
+
+    def change_center_y(self):
+        self.center_y = random.randrange(constants.MAP_HEIGHT)
+
+    

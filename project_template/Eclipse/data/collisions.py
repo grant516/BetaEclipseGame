@@ -1,5 +1,6 @@
 import random
 from data import constants
+import arcade
 from data.action import Action
 
 class Collisions(Action):
@@ -17,10 +18,12 @@ class Collisions(Action):
         """
         player = cast["player"][0]
 
+        walls = cast["wall"]
+
         enemy_to_remove = []
 
         for enemy in cast["enemy"]:
-            self._enemy_collision(enemy, player)
+            self._enemy_collision(enemy, player, walls)
             self._player_attack(enemy, player)
 
             """self._handle_wall_bounce(ball)
@@ -55,7 +58,7 @@ class Collisions(Action):
                enemy.sub_health()
                print("attack")
                
-    def _enemy_collision(self, enemy, player):
+    def _enemy_collision(self, enemy, player, walls):
         enemy_x = enemy.center_x
         enemy_y = enemy.center_y
         player_x = player.center_x
@@ -63,6 +66,20 @@ class Collisions(Action):
 
         if enemy.collides_with_sprite(player):
             player.sub_health()
+        elif len(arcade.check_for_collision_with_list(enemy, walls)) > 0:
+                if(enemy.change_x < 0):
+                    enemy.change_x = 0
+                    enemy.center_x += 10
+                elif(enemy.change_x > 0):
+                    enemy.change_x = 0
+                    enemy.center_x -= 10
+
+                if(enemy.change_y < 0):
+                    enemy.change_y = 0
+                    enemy.center_y += 10
+                elif(enemy.change_y > 0):
+                    enemy.change_y = 0
+                    enemy.center_y -= 10
         else:
             if enemy_x > player_x and abs(enemy_x - player_x) < constants.TRACKING and abs(enemy_y - player_y) < constants.TRACKING:
                 enemy.change_x_neg()
@@ -77,6 +94,7 @@ class Collisions(Action):
                 enemy.change_y_pos()
             else:
                 enemy.change_y = 0
+        
 
         ## If the enemy hit a wall, reverse
         #if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:

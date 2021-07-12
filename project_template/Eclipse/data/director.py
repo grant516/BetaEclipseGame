@@ -15,7 +15,7 @@ class Director(arcade.Window):
         self._output_service = output_service
 
         self.player_list = arcade.SpriteList()
-        self.wall_list = arcade.SpriteList()
+        #self.wall_list = arcade.SpriteList()
         #self.ground_list = arcade.SpriteList()
         self.enemy_list = arcade.SpriteList()
         self.key_list = arcade.SpriteList()
@@ -37,15 +37,21 @@ class Director(arcade.Window):
         self.player_list.append(self.player_sprite)"""
         player_sprite = self._cast["player"][0]
         enemy_sprites = self._cast["enemy"]
+        wall_list = self._cast["wall"]
 
         for x in range (0, len(enemy_sprites)):
             self.enemy_list.append(enemy_sprites[x])
 
         self.player_list.append(player_sprite)
         
+        keys_layer_name = 'Keys'
+
+        arcade.set_background_color(arcade.color.BLACK)
+        my_map = arcade.tilemap.read_tmx(constants.MAP)
+        """
         #maze_ground = 'Ground'
         maze_walls = 'Walls'
-        keys_layer_name = 'Keys'
+        
 
         arcade.set_background_color(arcade.color.BLACK)
         my_map = arcade.tilemap.read_tmx(constants.MAP)
@@ -59,13 +65,17 @@ class Director(arcade.Window):
                                                       layer_name = maze_walls,
                                                       scaling = constants.TILE_SCALING,
                                                       use_spatial_hash=True)
+
+        #adding wall_list to the cast
+        self._cast["wall"] = self.wall_list
+        """
         
         self.key_list = arcade.tilemap.process_layer(my_map, keys_layer_name, constants.TILE_SCALING)
 
         if my_map.background_color:
             arcade.set_background_color(my_map.background_color)
 
-        self.physics_engine = arcade.PhysicsEnginePlatformer(player_sprite, self.wall_list, 0)
+        self.physics_engine = arcade.PhysicsEnginePlatformer(player_sprite, wall_list, 0)
 
         #self.enemy_physics = (arcade.PhysicsEnginePlatformer(self.enemy_list, self.wall_list, 0))
 
@@ -131,12 +141,6 @@ class Director(arcade.Window):
                 elif(enemy.change_y > 0):
                     enemy.change_y = 0
                     enemy.center_y -= 10"""
-            ## If the enemy hit the left boundary, reverse
-            #elif enemy.boundary_left is not None and enemy.left < enemy.boundary_left:
-            #    enemy.change_x *= -1
-            ## If the enemy hit the right boundary, reverse
-            #elif enemy.boundary_right is not None and enemy.right > enemy.boundary_right:
-            #    enemy.change_x *= -1
 
 
     def on_draw(self):
@@ -146,7 +150,7 @@ class Director(arcade.Window):
         arcade.draw_lrwh_rectangle_textured(0, 0,
                                             2400, 2400,
                                             self.background)
-        self.wall_list.draw()
+        self._cast["wall"].draw()
         self._cue_action("output")
 
         
