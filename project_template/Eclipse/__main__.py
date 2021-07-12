@@ -16,6 +16,7 @@ from data.enemy import Enemy
 
 from data.director import Director
 import arcade
+from arcade import sprite_list
 
 def main():
 
@@ -25,11 +26,26 @@ def main():
     player = Player()
     cast["player"] = [player]
 
+    maze_walls = 'Walls'
+    wall_list = arcade.SpriteList()
+        
+    my_map = arcade.tilemap.read_tmx(constants.MAP)
+
+    wall_list = arcade.tilemap.process_layer(map_object = my_map,
+                                                  layer_name = maze_walls,
+                                                  scaling = constants.TILE_SCALING,
+                                                  use_spatial_hash=True)
+    #adding wall_list to the cast
+    cast["wall"] = wall_list
+
     cast["enemy"] = []
 
     for i in range(constants.NUM_ENEMY):
         enemy = Enemy()
         cast["enemy"].append(enemy)
+        while len(arcade.check_for_collision_with_list(enemy, cast["wall"])) > 0:
+            enemy.change_center_x()
+            enemy.change_center_y()
         pass  
 
     #cast["background"] = None
