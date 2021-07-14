@@ -44,12 +44,15 @@ class ArcadeInputService:
         elif arcade.key.DOWN in self._keys:
             y = -1
 
+        if arcade.key.SPACE in self._keys:
+                self._attack = True
+
         velocity = Point(x, y)
         return velocity
             
     def get_attack(self):
-        if arcade.key.SPACE in self._keys:
-                self._attack = True
+        #if arcade.key.SPACE in self._keys:
+        #        self._attack = True
                 #print("ATTACK")
         return self._attack
 
