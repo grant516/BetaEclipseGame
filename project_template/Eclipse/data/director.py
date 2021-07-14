@@ -91,6 +91,8 @@ class Director(arcade.Window):
             print("game over")
             #self.texture = arcade.load_texture("game_over.png")
 
+        self.player_list.update_animation(delta_time)
+
         #Below is all the code potintially needed so the map moves with the user
         changed = False
         # Scroll left
@@ -124,25 +126,6 @@ class Director(arcade.Window):
                                 self.view_bottom,
                                 constants.SCREEN_HEIGHT + self.view_bottom)
 
-        #the code below is the code that makes the enemies unable to walk through walls
-        """for enemy in self.enemy_list:
-            # If the enemy hit a wall, reverse
-            val = len(arcade.check_for_collision_with_list(enemy, self.wall_list))
-            if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
-                if(enemy.change_x < 0):
-                    enemy.change_x = 0
-                    enemy.center_x += 10
-                elif(enemy.change_x > 0):
-                    enemy.change_x = 0
-                    enemy.center_x -= 10
-
-                if(enemy.change_y < 0):
-                    enemy.change_y = 0
-                    enemy.center_y += 10
-                elif(enemy.change_y > 0):
-                    enemy.change_y = 0
-                    enemy.center_y -= 10"""
-
 
     def on_draw(self):
         self._output_service.clear_screen()
@@ -168,6 +151,7 @@ class Director(arcade.Window):
     def on_key_release(self, symbol, modifiers):
         self._input_service.remove_key(symbol, modifiers)
         self._input_service.end_attack() #this will end the attack so it doesn't kill everything for the rest of the game.
+        self._cast["player"][0].set_attack2(True)
         self._cue_action("input")
 
     def _cue_action(self, tag):
