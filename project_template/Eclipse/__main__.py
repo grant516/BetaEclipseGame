@@ -23,12 +23,12 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
-    player = Player()
+    player = Player(.25, 32, 33, -10, 11, 40, 5)
     cast["player"] = [player]
 
     maze_walls = 'Walls'
     wall_list = arcade.SpriteList()
-        
+
     my_map = arcade.tilemap.read_tmx(constants.MAP)
 
     wall_list = arcade.tilemap.process_layer(map_object = my_map,
@@ -46,7 +46,7 @@ def main():
         while len(arcade.check_for_collision_with_list(enemy, cast["wall"])) > 0:
             enemy.change_center_x()
             enemy.change_center_y()
-        pass  
+        pass
 
     #cast["background"] = None
 
@@ -55,12 +55,12 @@ def main():
 
     input_service = ArcadeInputService()
     output_service = ArcadeOutputService()
-    
+
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
     handle_collisions_action = Collisions()
     draw_actors_action = DrawActorsAction(output_service)
-    
+
     script["input"] = [control_actors_action]
     script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]

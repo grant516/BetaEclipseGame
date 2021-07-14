@@ -4,10 +4,10 @@ from data.health import SpriteWithHealth
 
 import arcade
 
-class Player(arcade.Sprite):
-    def __init__(self, image, scale, health_y_position, text_y_position, text_x_position, health_width, height, max_health):
-        super().__init__(constants.PLAYER_IMAGE, image, scale, health_y_position,
-                         text_y_position, text_x_position, health_width, height, max_health)
+class Player(SpriteWithHealth):
+    def __init__(self, scale, health_y_position, text_y_position, text_x_position, health_width, height):
+        super().__init__(constants.PLAYER_IMAGE, scale, health_y_position,
+                         text_y_position, text_x_position, health_width, height)
 
         #self.center_x = int(constants.MAX_X / 2)
         #self.center_y = int(constants.PLAYER_Y)
