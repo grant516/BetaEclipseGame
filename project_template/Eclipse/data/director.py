@@ -1,6 +1,7 @@
 import arcade
 from arcade import sprite_list
 from data import constants
+from data.health import SpriteWithHealth
 
 
 class Director(arcade.Window):
@@ -43,7 +44,7 @@ class Director(arcade.Window):
             self.enemy_list.append(enemy_sprites[x])
 
         self.player_list.append(player_sprite)
-        
+
         keys_layer_name = 'Keys'
 
         arcade.set_background_color(arcade.color.BLACK)
@@ -51,7 +52,7 @@ class Director(arcade.Window):
         """
         #maze_ground = 'Ground'
         maze_walls = 'Walls'
-        
+
 
         arcade.set_background_color(arcade.color.BLACK)
         my_map = arcade.tilemap.read_tmx(constants.MAP)
@@ -69,7 +70,7 @@ class Director(arcade.Window):
         #adding wall_list to the cast
         self._cast["wall"] = self.wall_list
         """
-        
+
         self.key_list = arcade.tilemap.process_layer(my_map, keys_layer_name, constants.TILE_SCALING)
 
         if my_map.background_color:
@@ -133,10 +134,15 @@ class Director(arcade.Window):
         arcade.draw_lrwh_rectangle_textured(0, 0,
                                             2400, 2400,
                                             self.background)
+        self._cast["player"][0].draw_health_bar()
+        for enemy in self._cast["enemy"]:
+            enemy.draw_health_bar()
+
         self._cast["wall"].draw()
         self._cue_action("output")
 
-        
+
+
 
     def on_key_press(self, symbol, modifiers):
         self._input_service.set_key(symbol, modifiers)
@@ -150,9 +156,9 @@ class Director(arcade.Window):
 
     def _cue_action(self, tag):
         """Executes the actions with the given tag.
-        
+
         Args:
             tag (string): The given tag.
-        """ 
+        """
         for action in self._script[tag]:
             action.execute(self._cast)

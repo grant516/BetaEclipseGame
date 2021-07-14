@@ -5,7 +5,7 @@ import arcade
 
 class DrawActorsAction(Action):
     """A code template for drawing actors.
-    
+
     Stereotype:
         Controller
 
@@ -15,7 +15,7 @@ class DrawActorsAction(Action):
 
     def __init__(self, output_service):
         """The class constructor.
-        
+
         Args:
             _output_service (OutputService): An instance of OutputService.
         """
@@ -37,7 +37,7 @@ class DrawActorsAction(Action):
         for enemy in cast["enemy"]:
             self._output_service.draw_actor(enemy)
 
-        paddle = cast["player"][0] # there's only one
-        self._output_service.draw_actor(paddle)
+        player = cast["player"][0] # there's only one
+        self._output_service.draw_actor(player)
 
         self._output_service.flush_buffer()

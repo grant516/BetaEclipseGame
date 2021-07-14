@@ -1,19 +1,26 @@
-from data.point import Point
+# from data.point import Point
 from data import constants
+from data.health import SpriteWithHealth
 
 import arcade
 
-class Player(arcade.Sprite):
-    def __init__(self):
-        #super().__init__(constants.PLAYER_DOWN1)
-        super().__init__()
+
+class Player(SpriteWithHealth):
+    def __init__(self, image, scale, health_y_position, text_y_position, text_x_position, health_width, height, max_health):
+        super().__init__(image, scale, health_y_position,
+                         text_y_position, text_x_position, health_width, height, max_health)
+
+#class Player(arcade.Sprite):
+#    def __init__(self):
+#        #super().__init__(constants.PLAYER_DOWN1)
+#        super().__init__()
+
 
         #self.center_x = int(constants.MAX_X / 2)
         #self.center_y = int(constants.PLAYER_Y)
 
         self.center_x = 128
         self.center_y = 128
-
         self._health = 100
         self._game_over = False
         self._attack = False
@@ -247,3 +254,4 @@ class Player(arcade.Sprite):
         LEFT_FACING = 1
         UP_FACING = 2
         DOWN_FACING = 3"""
+
