@@ -26,6 +26,13 @@ BRICK_SPACE = 10
 
 ENEMY_CAN_DIE = False
 
+HEALTHBAR_WIDTH = 25
+HEALTHBAR_HEIGHT = 3
+HEALTHBAR_OFFSET_Y = -10
+
+HEALTH_NUMBER_OFFSET_X = -10
+HEALTH_NUMBER_OFFSET_Y = -25
+
 TILE_SCALING = 1
 
 # How many pixels to keep as a minimum margin between the character
