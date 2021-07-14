@@ -4,8 +4,8 @@ import arcade
 class SpriteWithHealth(arcade.Sprite):
     """ Sprite with hit points """
 
-    def __init__(self,scale, health_y_position, text_y_position, text_x_position, health_width, height):
-        super().__init__(scale)
+    def __init__(self, image, scale, health_y_position, text_y_position, text_x_position, health_width, height, max_health):
+        super().__init__(image, scale)
 
         # Add extra attributes for health
         self.max_health = max_health

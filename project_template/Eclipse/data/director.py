@@ -151,8 +151,13 @@ class Director(arcade.Window):
         arcade.draw_lrwh_rectangle_textured(0, 0,
                                             2400, 2400,
                                             self.background)
+        self._cast["player"][0].draw_health_bar()
+        for enemy in self._cast["enemy"]:
+            enemy.draw_health_bar()
+
         self._cast["wall"].draw()
         self._cue_action("output")
+
 
 
 

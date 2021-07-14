@@ -23,7 +23,7 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
-    player = Player(.25, 32, 33, -10, 11, 40, 5)
+    player = Player(constants.PLAYER_IMAGE, 1, 24, 33, 10, 25, 5, 25)
     cast["player"] = [player]
 
     maze_walls = 'Walls'
@@ -37,16 +37,15 @@ def main():
                                                   use_spatial_hash=True)
     #adding wall_list to the cast
     cast["wall"] = wall_list
-
     cast["enemy"] = []
 
     for i in range(constants.NUM_ENEMY):
-        enemy = Enemy()
+        enemy = Enemy(constants.ENEMY_IMAGE, 1, 24, 33, 10, 15, 5, 5)
         cast["enemy"].append(enemy)
         while len(arcade.check_for_collision_with_list(enemy, cast["wall"])) > 0:
             enemy.change_center_x()
             enemy.change_center_y()
-        pass
+
 
     #cast["background"] = None
 
