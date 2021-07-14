@@ -16,15 +16,15 @@ class SpriteWithHealth(arcade.Sprite):
         self.health_bar_width = health_width
         self.health_bar_height = height
 
-    def draw_health_number(self):
-        """Draw how many hit points you have
-        """
-        health_string = f"{self.cur_health}/{self.max_health}"
-        arcade.draw_text(health_string,
-                        start_x = self.center_x + self.health_number_x_position,
-                        start_y = self.center_y + self.health_number_y_position,
-                        font_size = self.font,
-                        color = arcade.color.BLACK)
+    #def draw_health_number(self):
+    #    """Draw how many hit points you have
+    #    """
+    #    health_string = f"{self.cur_health}/{self.max_health}"
+    #    arcade.draw_text(health_string,
+    #                    start_x = self.center_x + self.health_number_x_position,
+    #                    start_y = self.center_y + self.health_number_y_position,
+    #                    font_size = self.font,
+    #                    color = arcade.color.BLACK)
 
     def draw_health_bar(self):
         """Draw the health bar
