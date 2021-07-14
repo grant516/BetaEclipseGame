@@ -126,10 +126,10 @@ class Player(SpriteWithHealth):
         self.set_hit_box(self.texture.hit_box_points)
 
     def get_health(self):
-        return(self._health)
+        return(self.cur_health)
 
     def sub_health(self):
-        self._health -= 1
+        self.cur_health -= 1
 
     def get_game_over(self):
         return(self._game_over)

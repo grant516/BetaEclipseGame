@@ -35,10 +35,10 @@ class Enemy(SpriteWithHealth):
         self._health = 5
 
     def get_health(self):
-        return(self._health)
+        return(self.cur_health)
 
     def sub_health(self):
-        self._health -= 1
+        self.cur_health -= 1
 
     def change_x_neg(self):
         self.change_x = -constants.ENEMY_SPEED
