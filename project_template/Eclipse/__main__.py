@@ -1,5 +1,3 @@
-# program entry point
-import random
 from data import constants
 from data.point import Point
 from data.control_actors_action import ControlActorsAction
@@ -8,15 +6,16 @@ from data.collisions import Collisions
 from data.move_actors_action import MoveActorsAction
 from data.arcade_input_service import ArcadeInputService
 from data.arcade_output_service import ArcadeOutputService
-
+from data.director import instruction_view
 
 from data.player import Player
 from data.brick import Brick
 from data.enemy import Enemy
-
-from data.director import Director
 import arcade
 from arcade import sprite_list
+
+
+
 
 def main():
 
@@ -65,9 +64,10 @@ def main():
     script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
-    # start the data
-    director = Director(cast, script, input_service, output_service)
-    director.setup()
+    # start the data  
+    window = arcade.Window(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, "Eclipse")
+    start_view = instruction_view(cast, script, input_service, output_service)
+    window.show_view(start_view)
     arcade.run()
 
 

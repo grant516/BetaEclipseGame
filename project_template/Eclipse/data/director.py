@@ -1,13 +1,50 @@
 import arcade
 from arcade import sprite_list
 from data import constants
+from data.player import Player
+from data.enemy import Enemy
 
 
-class Director(arcade.Window):
+
+
+class instruction_view(arcade.View):
+    def __init__(self, cast, script, input_service, output_service):
+        super().__init__()
+
+        self._cast = cast
+        self._script = script
+        self._input_service = input_service
+        self._output_service = output_service
+
+    def on_show(self):
+        arcade.set_background_color(arcade.color.BLACK)
+
+    def on_draw(self):
+        arcade.start_render()
+        arcade.draw_text("ECLIPSE", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+200,
+                         arcade.color.WHITE_SMOKE, font_size=35, anchor_x="center")
+        arcade.draw_text("GOAL: GET THOSE KEYS AND HEAD TO THE FINISH LINE... AND UHMM DON'T DIE ", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+150,
+                         arcade.color.GOLD, font_size=17, anchor_x="center")
+        arcade.draw_text("Attack Enemies: Space bar", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+100,
+                         arcade.color.WHITE, font_size=15, anchor_x="center")
+        arcade.draw_text("Left/right Arrow: Move Left and Right", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+50,
+                         arcade.color.WHITE, font_size=15, anchor_x="center")
+        arcade.draw_text("Top/bottom Arrow: Move Forward and Backward", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2,
+                         arcade.color.WHITE, font_size=15, anchor_x="center")
+        arcade.draw_text("Click to advance", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2-50,
+                         arcade.color.GRAY, font_size=20, anchor_x="center")
+
+    def on_mouse_press(self, _x, _y, _button, _modifiers):
+        game_view = Director_view(self._cast, self._script, self._input_service, self._output_service)
+        game_view.setup()
+        self.window.show_view(game_view)
+
+
+class Director_view(arcade.View):
     def __init__(self, cast, script, input_service, output_service):
         """Initialize the game
         """
-        super().__init__(constants.MAX_X, constants.MAX_Y, "director")
+        super().__init__()
 
         self._cast = cast
         self._script = script
@@ -22,6 +59,7 @@ class Director(arcade.Window):
 
         self.background = arcade.load_texture(constants.GROUND)
         #self.enemy_physics = []
+        self.physics_engine = None
 
         #used to keep track of the scrolling
         self.view_bottom = 0
@@ -152,7 +190,12 @@ class Director(arcade.Window):
                                             self.background)
         self._cast["wall"].draw()
         self._cue_action("output")
+        if self._cast["player"][0].get_game_over():
 
+
+
+            game_over_view = GameOverView(self._cast, self._script, self._input_service, self._output_service)
+            self.window.show_view(game_over_view)
         
 
     def on_key_press(self, symbol, modifiers):
@@ -172,3 +215,46 @@ class Director(arcade.Window):
         """ 
         for action in self._script[tag]:
             action.execute(self._cast)
+
+
+class GameOverView(arcade.View):
+    def __init__(self, cast, script, input_service, output_service):
+        super().__init__()
+
+        self._cast = cast
+        self._script = script
+        self._input_service = input_service
+        self._output_service = output_service
+       
+
+    def on_show(self):
+        arcade.set_background_color(arcade.color.BLACK)
+
+    def on_draw(self):
+        arcade.start_render()
+        """
+        Draw "Game over" across the screen.
+        """
+        arcade.draw_text("Game Over", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+100, arcade.color.WHITE, 54, anchor_x='center')
+        arcade.draw_text("Click to restart", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2, arcade.color.WHITE, 24, anchor_x='center' )
+
+       
+
+    def on_mouse_press(self, _x, _y, _button, _modifiers):
+        player = Player()
+        self._cast["player"] = [player]
+        self._cast["enemy"] = []
+
+        for i in range(constants.NUM_ENEMY):
+            enemy = Enemy()
+            self._cast["enemy"].append(enemy)
+            while len(arcade.check_for_collision_with_list(enemy, self._cast["wall"])) > 0:
+                enemy.change_center_x()
+                enemy.change_center_y()
+            pass  
+
+
+        director_view = Director_view(self._cast, self._script, self._input_service, self._output_service)
+        director_view.setup()
+        self.window.show_view(director_view)
+
