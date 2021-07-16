@@ -1,3 +1,4 @@
+
 import random
 from data import constants
 import arcade
@@ -32,8 +33,16 @@ class Collisions(Action):
             bricks = cast["bricks"]
             self._handle_brick_collision(ball, bricks)
             """
-            if player.collides_with_sprite(enemy) and player.get_health() <= 0:
-                print("you dead")
+
+            if player.collides_with_sprite(enemy) and player.get_health() <= 0:    
+                #game_view = GameOverView()
+                #self.window.show_view(game_view)
+                #player.set_game_over()
+                 pass
+
+            #if player.collides_with_sprite(enemy) and player.get_health() <= 0:
+            #    print("you dead")
+
                 player.set_game_over()
             if enemy.collides_with_sprite(player) and enemy.get_health() <= 0:
                 enemy_to_remove.append(enemy)
