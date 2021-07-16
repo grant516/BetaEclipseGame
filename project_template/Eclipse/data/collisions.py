@@ -54,9 +54,14 @@ class Collisions(Action):
         player_x = player.center_x
         player_y = player.center_y
 
-        if(player.get_attack() and abs(enemy_x - player_x) < constants.RANGE and abs(enemy_y - player_y) < constants.RANGE):
-               enemy.sub_health()
-               print("attack")
+        #if(player.get_attack()):
+        #    print("hi")
+
+        if(player.get_attack2()):
+            if(player.get_attack() and abs(enemy_x - player_x) < constants.RANGE and abs(enemy_y - player_y) < constants.RANGE):
+                enemy.sub_health()
+                print("attack")
+                player.set_attack2(False)
                
     def _enemy_collision(self, enemy, player, walls):
         enemy_x = enemy.center_x
