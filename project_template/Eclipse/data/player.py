@@ -129,7 +129,8 @@ class Player(SpriteWithHealth):
         return(self.cur_health)
 
     def sub_health(self):
-        self.cur_health -= 1
+        if self._game_over != True:
+            self.cur_health -= 1
 
     def get_game_over(self):
         return(self._game_over)
@@ -167,8 +168,8 @@ class Player(SpriteWithHealth):
             self.texture = self.up_texture_pair[self.cur_texture]#[self.character_face_direction]
             self.character_face_direction = constants.UP_FACING
 
-            new_hit = self.up_texture_pair[self.cur_texture]
-            self.set_hit_box(new_hit.hit_box_points)
+            #new_hit = self.up_texture_pair[self.cur_texture]
+            #self.set_hit_box(new_hit.hit_box_points)
             #return
         elif self.change_y < 0:
             self.cur_texture += 1
@@ -186,8 +187,8 @@ class Player(SpriteWithHealth):
             #self.texture = self.idle_texture_pair[self.character_face_direction]
             #self.texture = self.idle_texture_pair
             self.texture = self.texture
-            new_hit = self.texture
-            self.set_hit_box(new_hit.hit_box_points)
+            #new_hit = self.texture
+            #self.set_hit_box(new_hit.hit_box_points)
             #return
 
         # Walking right animation
@@ -198,8 +199,8 @@ class Player(SpriteWithHealth):
             self.texture = self.walk_right_textures[self.cur_texture]#[self.character_face_direction]
             self.character_face_direction = constants.RIGHT_FACING
 
-            new_hit = self.walk_right_textures[self.cur_texture]
-            self.set_hit_box(new_hit.hit_box_points)
+            #new_hit = self.walk_right_textures[self.cur_texture]
+            #self.set_hit_box(new_hit.hit_box_points)
         elif self.change_x < 0:
             # Walking left animation
             self.cur_texture += 1
@@ -208,8 +209,8 @@ class Player(SpriteWithHealth):
             self.texture = self.walk_left_textures[self.cur_texture]#[self.character_face_direction]
             self.character_face_direction = constants.LEFT_FACING
 
-            new_hit = self.walk_left_textures[self.cur_texture]
-            self.set_hit_box(new_hit.hit_box_points)
+            #new_hit = self.walk_left_textures[self.cur_texture]
+            #self.set_hit_box(new_hit.hit_box_points)
 
         if self._attack:
             if(self.character_face_direction == constants.RIGHT_FACING):
@@ -217,8 +218,8 @@ class Player(SpriteWithHealth):
                 if self.cur_texture > (len(self.sword_right_textures)-1):
                     self.cur_texture = 0
                 self.texture = self.sword_right_textures[self.cur_texture]
-                new_hit = self.sword_right_textures[self.cur_texture]
-                self.set_hit_box(new_hit.hit_box_points)
+                #new_hit = self.sword_right_textures[self.cur_texture]
+                #self.set_hit_box(new_hit.hit_box_points)
                 if(self.cur_texture == (len(self.sword_right_textures)-1)):
                     self._attack = False
             elif(self.character_face_direction == constants.LEFT_FACING):
@@ -226,8 +227,8 @@ class Player(SpriteWithHealth):
                 if self.cur_texture > (len(self.sword_left_textures)-1):
                     self.cur_texture = 0
                 self.texture = self.sword_left_textures[self.cur_texture]
-                new_hit = self.sword_left_textures[self.cur_texture]
-                self.set_hit_box(new_hit.hit_box_points)
+                #new_hit = self.sword_left_textures[self.cur_texture]
+                #self.set_hit_box(new_hit.hit_box_points)
                 if(self.cur_texture == (len(self.sword_left_textures)-1)):
                     self._attack = False
             elif(self.character_face_direction == constants.DOWN_FACING):
@@ -235,8 +236,8 @@ class Player(SpriteWithHealth):
                 if self.cur_texture > (len(self.sword_down_textures)-1):
                     self.cur_texture = 0
                 self.texture = self.sword_down_textures[self.cur_texture]
-                new_hit = self.sword_down_textures[self.cur_texture]
-                self.set_hit_box(new_hit.hit_box_points)
+                #new_hit = self.sword_down_textures[self.cur_texture]
+                #self.set_hit_box(new_hit.hit_box_points)
                 if(self.cur_texture == (len(self.sword_down_textures)-1)):
                     self._attack = False
             elif(self.character_face_direction == constants.UP_FACING):
@@ -244,8 +245,8 @@ class Player(SpriteWithHealth):
                 if self.cur_texture > (len(self.sword_up_textures)-1):
                     self.cur_texture = 0
                 self.texture = self.sword_up_textures[self.cur_texture]
-                new_hit = self.sword_up_textures[self.cur_texture]
-                self.set_hit_box(new_hit.hit_box_points)
+                #new_hit = self.sword_up_textures[self.cur_texture]
+                #self.set_hit_box(new_hit.hit_box_points)
                 if(self.cur_texture == (len(self.sword_up_textures)-1)):
                     self._attack = False
 

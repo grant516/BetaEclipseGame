@@ -1,6 +1,6 @@
 import os
 
-RANGE = 50
+RANGE = 65
 TRACKING = 150
 
 SCREEN_WIDTH = 800
@@ -13,9 +13,12 @@ MAX_X = 800
 MAX_Y = 600
 NUM_ENEMY = 50
 
+
+ENEMY_SPEED = 2
+
 NUM_KEYS = 5
 
-ENEMY_SPEED = 4
+
 ENEMY_Y = MAX_Y / 2
 
 PLAYER_Y = 25
@@ -28,6 +31,8 @@ BRICK_SPACE = 10
 
 ENEMY_CAN_DIE = False
 
+PLAYER_ATTACK_POWER = 2
+
 HEALTHBAR_WIDTH = 25
 HEALTHBAR_HEIGHT = 3
 HEALTHBAR_OFFSET_Y = -10
@@ -39,10 +44,10 @@ TILE_SCALING = 1
 
 # How many pixels to keep as a minimum margin between the character
 # and the edge of the screen.
-LEFT_VIEWPORT_MARGIN = 250
-RIGHT_VIEWPORT_MARGIN = 250
-BOTTOM_VIEWPORT_MARGIN = 100
-TOP_VIEWPORT_MARGIN = 100
+LEFT_VIEWPORT_MARGIN = 325
+RIGHT_VIEWPORT_MARGIN = 325
+BOTTOM_VIEWPORT_MARGIN = 150
+TOP_VIEWPORT_MARGIN = 150
 
 
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -86,4 +91,13 @@ RIGHT_FACING = 0
 LEFT_FACING = 1
 UP_FACING = 2
 DOWN_FACING = 3
+
+PLAYER_MAX_HEALTH = 25
+ENEMY_MAX_HEALTH = 5
+
+MUSIC_VOLUME = 0.2
+BACKGROUND_MUSIC = os.path.join(PATH, "..", "sounds/Overworld.mp3")
+#BACKGROUND_MUSIC = os.path.join(PATH, "..", "sounds/1_MainTheme_320bit.mp3")
+
+SWORD_WOOSH = os.path.join(PATH, "..", "sounds/sword_woosh.mp3")
 

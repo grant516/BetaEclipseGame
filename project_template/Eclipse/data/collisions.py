@@ -34,7 +34,7 @@ class Collisions(Action):
             """
             if player.collides_with_sprite(enemy) and player.get_health() <= 0:
                 print("you dead")
-                #player.set_game_over()
+                player.set_game_over()
             if enemy.collides_with_sprite(player) and enemy.get_health() <= 0:
                 enemy_to_remove.append(enemy)
 
@@ -63,9 +63,25 @@ class Collisions(Action):
 
         if(player.get_attack2()):
             if(player.get_attack() and abs(enemy_x - player_x) < constants.RANGE and abs(enemy_y - player_y) < constants.RANGE):
+            #if(player.get_attack() and player.collides_with_sprite(enemy)):
                 enemy.sub_health()
                 print("attack")
                 player.set_attack2(False)
+
+                #designed to make the enemy sort of bounce back after getting hit
+                """if(enemy.change_x < 0):
+                    enemy.change_x = 0
+                    enemy.center_x += 20
+                elif(enemy.change_x > 0):
+                    enemy.change_x = 0
+                    enemy.center_x -= 20
+
+                if(enemy.change_y < 0):
+                    enemy.change_y = 0
+                    enemy.center_y += 20
+                elif(enemy.change_y > 0):
+                    enemy.change_y = 0
+                    enemy.center_y -= 20"""
                
     def _enemy_collision(self, enemy, player, walls):
         enemy_x = enemy.center_x
@@ -73,7 +89,7 @@ class Collisions(Action):
         player_x = player.center_x
         player_y = player.center_y
 
-        if enemy.collides_with_sprite(player):
+        if (enemy.collides_with_sprite(player) and player.get_attack() != True):
             player.sub_health()
         elif len(arcade.check_for_collision_with_list(enemy, walls)) > 0:
                 if(enemy.change_x < 0):
@@ -104,16 +120,6 @@ class Collisions(Action):
             else:
                 enemy.change_y = 0
         
-
-        ## If the enemy hit a wall, reverse
-        #if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
-        #    enemy.change_x *= -1
-        ## If the enemy hit the left boundary, reverse
-        #elif enemy.boundary_left is not None and enemy.left < enemy.boundary_left:
-        #    enemy.change_x *= -1
-        ## If the enemy hit the right boundary, reverse
-        #elif enemy.boundary_right is not None and enemy.right > enemy.boundary_right:
-        #    enemy.change_x *= -1
         
         
     

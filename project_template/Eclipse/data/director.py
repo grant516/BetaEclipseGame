@@ -1,6 +1,7 @@
 import arcade
 from arcade import sprite_list
 from data import constants
+from data.sounds import Sounds
 from data.health import SpriteWithHealth
 
 
@@ -15,6 +16,7 @@ class Director(arcade.Window):
         self._input_service = input_service
         self._output_service = output_service
 
+        self.music = Sounds()
         self.player_list = arcade.SpriteList()
         #self.wall_list = arcade.SpriteList()
         #self.ground_list = arcade.SpriteList()
@@ -40,6 +42,9 @@ class Director(arcade.Window):
         enemy_sprites = self._cast["enemy"]
         wall_list = self._cast["wall"]
 
+        #sets up the music
+        self.music.music_setup()
+
         for x in range (0, len(enemy_sprites)):
             self.enemy_list.append(enemy_sprites[x])
 
@@ -49,27 +54,8 @@ class Director(arcade.Window):
 
         arcade.set_background_color(arcade.color.BLACK)
         my_map = arcade.tilemap.read_tmx(constants.MAP)
-        """
-        #maze_ground = 'Ground'
-        maze_walls = 'Walls'
-
-
-        arcade.set_background_color(arcade.color.BLACK)
-        my_map = arcade.tilemap.read_tmx(constants.MAP)
-
-        #self.ground_list = arcade.tilemap.process_layer(map_object = my_map,
-        #                                              layer_name = maze_ground,
-        #                                              scaling = constants.TILE_SCALING,
-        #                                              use_spatial_hash=True)
-
-        self.wall_list = arcade.tilemap.process_layer(map_object = my_map,
-                                                      layer_name = maze_walls,
-                                                      scaling = constants.TILE_SCALING,
-                                                      use_spatial_hash=True)
-
-        #adding wall_list to the cast
-        self._cast["wall"] = self.wall_list
-        """
+        
+        #self.background_music = arcade.load_sound(constants.BACKGROUND_MUSIC)
 
         self.key_list = arcade.tilemap.process_layer(my_map, keys_layer_name, constants.TILE_SCALING)
 
@@ -88,7 +74,8 @@ class Director(arcade.Window):
 
         self._cue_action("update")
         if(player_sprite.get_game_over()):
-            print("game over")
+            pass
+            #print("game over")
             #self.texture = arcade.load_texture("game_over.png")
 
         self.player_list.update_animation(delta_time)
@@ -126,6 +113,9 @@ class Director(arcade.Window):
                                 self.view_bottom,
                                 constants.SCREEN_HEIGHT + self.view_bottom)
 
+        #music update
+        self.music.music_update()
+
 
     def on_draw(self):
         self._output_service.clear_screen()
@@ -147,7 +137,10 @@ class Director(arcade.Window):
 
     def on_key_press(self, symbol, modifiers):
         self._input_service.set_key(symbol, modifiers)
+        
         self._cue_action("input")
+        if(self._input_service.get_attack()):
+            arcade.play_sound(self.music.get_woosh())
 
     def on_key_release(self, symbol, modifiers):
         self._input_service.remove_key(symbol, modifiers)
