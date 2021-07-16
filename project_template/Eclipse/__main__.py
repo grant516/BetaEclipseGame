@@ -47,6 +47,8 @@ def main():
             enemy.change_center_x()
             enemy.change_center_y()
 
+    key_list = arcade.SpriteList()
+    cast["keys"] = key_list
 
     #cast["background"] = None
 

@@ -19,5 +19,6 @@ class Keys(arcade.Sprite):
 #
         #self.center_y = random.randrange(constants.SCREEN_HEIGHT)
         self.center_x = random.randrange(constants.MAP_WIDTH)
-
         self.center_y = random.randrange(constants.MAP_HEIGHT)
+
+        self.set_hit_box(self.texture.hit_box_points)

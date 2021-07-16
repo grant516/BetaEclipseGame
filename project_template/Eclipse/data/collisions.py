@@ -38,6 +38,10 @@ class Collisions(Action):
             if enemy.collides_with_sprite(player) and enemy.get_health() <= 0:
                 enemy_to_remove.append(enemy)
 
+        for key in cast["keys"]:
+            if player.center_x + 5 == key.center_x or player.center_x - 5 == key.center_x and player.center_y + 5 == key.center_y or player.center_y - 5 == key.center_y:
+                print('Key found')
+
         for enemy in enemy_to_remove:
             cast["enemy"].remove(enemy)
 
