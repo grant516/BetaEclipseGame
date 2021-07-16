@@ -13,6 +13,8 @@ MAX_X = 800
 MAX_Y = 600
 NUM_ENEMY = 50
 
+NUM_KEYS = 5
+
 ENEMY_SPEED = 4
 ENEMY_Y = MAX_Y / 2
 
@@ -47,11 +49,9 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 ENEMY_IMAGE = os.path.join(PATH, "..", "assets/goomba.png")
 PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
+KEY_IMAGE = os.path.join(PATH, "..", "assets/key.png")
 MAP = os.path.join(PATH, "..", "assets/final_map.tmx")
-
 GROUND = os.path.join(PATH, "..", "assets/ground.png")
-
-# MAP = ":resources:/tmx_maps/map.tmx"
 
 #The walking sprite images
 PLAYER_RIGHT1 = os.path.join(PATH, "..", "assets/player_walking_right_1.png")
@@ -86,3 +86,4 @@ RIGHT_FACING = 0
 LEFT_FACING = 1
 UP_FACING = 2
 DOWN_FACING = 3
+
