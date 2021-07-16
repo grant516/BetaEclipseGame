@@ -49,7 +49,7 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 ENEMY_IMAGE = os.path.join(PATH, "..", "assets/goomba.png")
 PLAYER_IMAGE = os.path.join(PATH, "..", "assets/player.png")
 ATTACK_PLAYER_IMAGE = os.path.join(PATH, "..", "assets/goomba2.png")
-KEY_IMAGE = os.path.join(PATH, "..", "assets/key.png")
+KEY_IMAGE = os.path.join(PATH, "..", "assets/keys.png")
 MAP = os.path.join(PATH, "..", "assets/final_map.tmx")
 GROUND = os.path.join(PATH, "..", "assets/ground.png")
 
