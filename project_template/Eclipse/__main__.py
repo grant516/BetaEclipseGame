@@ -8,6 +8,7 @@ from data.collisions import Collisions
 from data.move_actors_action import MoveActorsAction
 from data.arcade_input_service import ArcadeInputService
 from data.arcade_output_service import ArcadeOutputService
+from data.keys import Keys
 
 
 from data.player import Player
@@ -46,6 +47,8 @@ def main():
             enemy.change_center_x()
             enemy.change_center_y()
 
+    key_list = arcade.SpriteList()
+    cast["keys"] = key_list
 
     #cast["background"] = None
 

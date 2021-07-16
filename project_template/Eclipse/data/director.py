@@ -21,7 +21,7 @@ class Director(arcade.Window):
         #self.wall_list = arcade.SpriteList()
         #self.ground_list = arcade.SpriteList()
         self.enemy_list = arcade.SpriteList()
-        self.key_list = arcade.SpriteList()
+        #self.key_list = arcade.SpriteList()
 
         self.background = arcade.load_texture(constants.GROUND)
         #self.enemy_physics = []
@@ -130,6 +130,7 @@ class Director(arcade.Window):
 
         self._cast["wall"].draw()
         self._cue_action("output")
+        self.key_list.draw()
 
 
 
