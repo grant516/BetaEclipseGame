@@ -29,6 +29,7 @@ class ControlActorsAction(Action):
         direction = self._input_service.get_direction().scale(constants.PLAYER_MOVE_SCALE)
         player = cast["player"][0] # there's only one in the cast
         attack = self._input_service.get_attack()
-        player.set_attack(attack)
+        if(attack):
+            player.set_attack(True)
         player.change_x = direction.get_x()
         player.change_y = direction.get_y()

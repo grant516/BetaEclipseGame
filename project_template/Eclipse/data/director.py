@@ -1,12 +1,17 @@
 import arcade
 from arcade import sprite_list
 from data import constants
+
 from data.player import Player
 from data.enemy import Enemy
 
+from data.sounds import Sounds
+from data.health import SpriteWithHealth
 
 
 
+
+#needs to be in it's own file
 class instruction_view(arcade.View):
     def __init__(self, cast, script, input_service, output_service):
         super().__init__()
@@ -40,7 +45,7 @@ class instruction_view(arcade.View):
         self.window.show_view(game_view)
 
 
-class Director_view(arcade.View):
+class Director(arcade.View):
     def __init__(self, cast, script, input_service, output_service):
         """Initialize the game
         """
@@ -51,11 +56,12 @@ class Director_view(arcade.View):
         self._input_service = input_service
         self._output_service = output_service
 
+        self.music = Sounds()
         self.player_list = arcade.SpriteList()
         #self.wall_list = arcade.SpriteList()
         #self.ground_list = arcade.SpriteList()
         self.enemy_list = arcade.SpriteList()
-        self.key_list = arcade.SpriteList()
+        #self.key_list = arcade.SpriteList()
 
         self.background = arcade.load_texture(constants.GROUND)
         #self.enemy_physics = []
@@ -77,37 +83,21 @@ class Director_view(arcade.View):
         enemy_sprites = self._cast["enemy"]
         wall_list = self._cast["wall"]
 
+        #sets up the music
+        self.music.music_setup()
+
         for x in range (0, len(enemy_sprites)):
             self.enemy_list.append(enemy_sprites[x])
 
         self.player_list.append(player_sprite)
-        
+
         keys_layer_name = 'Keys'
 
         arcade.set_background_color(arcade.color.BLACK)
         my_map = arcade.tilemap.read_tmx(constants.MAP)
-        """
-        #maze_ground = 'Ground'
-        maze_walls = 'Walls'
         
+        #self.background_music = arcade.load_sound(constants.BACKGROUND_MUSIC)
 
-        arcade.set_background_color(arcade.color.BLACK)
-        my_map = arcade.tilemap.read_tmx(constants.MAP)
-
-        #self.ground_list = arcade.tilemap.process_layer(map_object = my_map,
-        #                                              layer_name = maze_ground,
-        #                                              scaling = constants.TILE_SCALING,
-        #                                              use_spatial_hash=True)
-
-        self.wall_list = arcade.tilemap.process_layer(map_object = my_map,
-                                                      layer_name = maze_walls,
-                                                      scaling = constants.TILE_SCALING,
-                                                      use_spatial_hash=True)
-
-        #adding wall_list to the cast
-        self._cast["wall"] = self.wall_list
-        """
-        
         self.key_list = arcade.tilemap.process_layer(my_map, keys_layer_name, constants.TILE_SCALING)
 
         if my_map.background_color:
@@ -125,8 +115,11 @@ class Director_view(arcade.View):
 
         self._cue_action("update")
         if(player_sprite.get_game_over()):
-            print("game over")
+            pass
+            #print("game over")
             #self.texture = arcade.load_texture("game_over.png")
+
+        self.player_list.update_animation(delta_time)
 
         #Below is all the code potintially needed so the map moves with the user
         changed = False
@@ -161,24 +154,8 @@ class Director_view(arcade.View):
                                 self.view_bottom,
                                 constants.SCREEN_HEIGHT + self.view_bottom)
 
-        #the code below is the code that makes the enemies unable to walk through walls
-        """for enemy in self.enemy_list:
-            # If the enemy hit a wall, reverse
-            val = len(arcade.check_for_collision_with_list(enemy, self.wall_list))
-            if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
-                if(enemy.change_x < 0):
-                    enemy.change_x = 0
-                    enemy.center_x += 10
-                elif(enemy.change_x > 0):
-                    enemy.change_x = 0
-                    enemy.center_x -= 10
-
-                if(enemy.change_y < 0):
-                    enemy.change_y = 0
-                    enemy.center_y += 10
-                elif(enemy.change_y > 0):
-                    enemy.change_y = 0
-                    enemy.center_y -= 10"""
+        #music update
+        self.music.music_update()
 
 
     def on_draw(self):
@@ -188,35 +165,44 @@ class Director_view(arcade.View):
         arcade.draw_lrwh_rectangle_textured(0, 0,
                                             2400, 2400,
                                             self.background)
+        self._cast["player"][0].draw_health_bar()
+        for enemy in self._cast["enemy"]:
+            enemy.draw_health_bar()
+
         self._cast["wall"].draw()
         self._cue_action("output")
+
         if self._cast["player"][0].get_game_over():
-
-
-
             game_over_view = GameOverView(self._cast, self._script, self._input_service, self._output_service)
             self.window.show_view(game_over_view)
         
+        self.key_list.draw()
+
 
     def on_key_press(self, symbol, modifiers):
         self._input_service.set_key(symbol, modifiers)
+        
         self._cue_action("input")
+        if(self._input_service.get_attack()):
+            arcade.play_sound(self.music.get_woosh())
 
     def on_key_release(self, symbol, modifiers):
         self._input_service.remove_key(symbol, modifiers)
         self._input_service.end_attack() #this will end the attack so it doesn't kill everything for the rest of the game.
+        self._cast["player"][0].set_attack2(True)
         self._cue_action("input")
 
     def _cue_action(self, tag):
         """Executes the actions with the given tag.
-        
+
         Args:
             tag (string): The given tag.
-        """ 
+        """
         for action in self._script[tag]:
             action.execute(self._cast)
-
-
+            
+            
+#needs to be in it's own file
 class GameOverView(arcade.View):
     def __init__(self, cast, script, input_service, output_service):
         super().__init__()
@@ -257,4 +243,5 @@ class GameOverView(arcade.View):
         director_view = Director_view(self._cast, self._script, self._input_service, self._output_service)
         director_view.setup()
         self.window.show_view(director_view)
+
 
