@@ -151,7 +151,7 @@ class Director(arcade.View):
             game_over_view = GameOverView(self._cast, self._script, self._input_service, self._output_service)
             self.window.show_view(game_over_view)
         
-        #self.key_list.draw()
+        self.key_list.draw()
 
 
     def on_key_press(self, symbol, modifiers):

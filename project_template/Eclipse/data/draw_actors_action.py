@@ -27,12 +27,6 @@ class DrawActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        #self._output_service.clear_screen()
-
-        """bricks = cast["bricks"]
-
-        for brick in bricks:
-            self._output_service.draw_actor(brick)"""
 
         for enemy in cast["enemy"]:
             self._output_service.draw_actor(enemy)
@@ -42,5 +36,6 @@ class DrawActorsAction(Action):
 
         boss = cast["boss"][0] # there's only one
         self._output_service.draw_actor(boss)
+
 
         self._output_service.flush_buffer()

@@ -7,7 +7,6 @@ from data.move_actors_action import MoveActorsAction
 from data.arcade_input_service import ArcadeInputService
 from data.arcade_output_service import ArcadeOutputService
 from data.instruction_view import Instruction_view
-from data.keys import Keys
 from data.player import Player
 from data.enemy import Enemy
 from data.boss import Boss
@@ -28,6 +27,9 @@ def main():
     maze_walls = 'Walls'
     wall_list = arcade.SpriteList()
 
+    maze_key = 'Keys'
+    key_list = arcade.SpriteList(use_spatial_hash=True)
+
     my_map = arcade.tilemap.read_tmx(constants.MAP)
 
     wall_list = arcade.tilemap.process_layer(map_object = my_map,
@@ -35,8 +37,15 @@ def main():
                                                   scaling = constants.TILE_SCALING,
                                                   use_spatial_hash=True)
     #adding wall_list to the cast
+
+    # key_list = arcade.tilemap.process_layer(map_object = my_map,
+    #                                               layer_name = maze_key,
+    #                                               scaling = constants.TILE_SCALING,
+    #                                               use_spatial_hash=True)
+
     cast["wall"] = wall_list
     cast["enemy"] = []
+    cast["key"] = key_list
 
     for i in range(constants.NUM_ENEMY):
         enemy = Enemy(constants.ENEMY_IMAGE, 1, 24, 33, 10, 15, 5, constants.ENEMY_MAX_HEALTH)
@@ -56,10 +65,6 @@ def main():
     boss.center_x = 2040
     boss.center_y = 1415
     #sets the boss's position
-    
-
-    key_list = arcade.SpriteList()
-    cast["keys"] = key_list
 
     #cast["background"] = None
 
