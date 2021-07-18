@@ -39,9 +39,14 @@ class Collisions(Action):
             if player.collides_with_sprite(enemy) and enemy.get_health() <= 0:
                 enemy_to_remove.append(enemy)
 
-        for key in cast["keys"]:
-            if player.center_x + 5 == key.center_x or player.center_x - 5 == key.center_x and player.center_y + 5 == key.center_y or player.center_y - 5 == key.center_y:
-                print('Key found')
+
+        key_hit_list = []
+        for key in cast["key"]:
+            key_hit_list = arcade.check_for_collision_with_list(player,key)
+            print("key found")
+
+        for key in key_hit_list:
+            key.remove_from_sprite_lists()
 
         for enemy in enemy_to_remove:
             cast["enemy"].remove(enemy)
@@ -76,14 +81,10 @@ class Collisions(Action):
         player_x = player.center_x
         player_y = player.center_y
 
-        #if(player.get_attack()):
-        #    print("hi")
 
         if(player.get_attack2()):
             if(player.get_attack() and abs(enemy_x - player_x) < constants.RANGE and abs(enemy_y - player_y) < constants.RANGE):
-            #if(player.get_attack() and player.collides_with_sprite(enemy)):
                 enemy.sub_health()
-                #print("attack")
                 player.set_attack2(False)
 
                 #designed to make the enemy sort of bounce back after getting hit
