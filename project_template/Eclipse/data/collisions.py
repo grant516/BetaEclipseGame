@@ -19,32 +19,24 @@ class Collisions(Action):
         """
         player = cast["player"][0]
 
+        boss = cast["boss"][0]
+
         walls = cast["wall"]
 
         enemy_to_remove = []
 
         for enemy in cast["enemy"]:
-            self._enemy_collision(enemy, player, walls)
+            self._enemy_collision(enemy, player, walls, constants.TRACKING)
             self._player_attack(enemy, player)
 
-            """self._handle_wall_bounce(ball)
-            self._handle_paddle_bounce(ball, paddle)
-
-            bricks = cast["bricks"]
-            self._handle_brick_collision(ball, bricks)
-            """
 
             if player.collides_with_sprite(enemy) and player.get_health() <= 0:    
                 #game_view = GameOverView()
                 #self.window.show_view(game_view)
-                #player.set_game_over()
-                 pass
-
-            #if player.collides_with_sprite(enemy) and player.get_health() <= 0:
-            #    print("you dead")
-
                 player.set_game_over()
-            if enemy.collides_with_sprite(player) and enemy.get_health() <= 0:
+
+
+            if player.collides_with_sprite(enemy) and enemy.get_health() <= 0:
                 enemy_to_remove.append(enemy)
 
         for key in cast["keys"]:
@@ -53,6 +45,23 @@ class Collisions(Action):
 
         for enemy in enemy_to_remove:
             cast["enemy"].remove(enemy)
+
+        #Everything in this method beyond this point is for the boss
+        if player.collides_with_sprite(boss) and player.get_health() <= 0:    
+                #game_view = GameOverView()
+                #self.window.show_view(game_view)
+                player.set_game_over()
+
+        self._enemy_collision(boss, player, walls, constants.BOSS_TRACKING)
+        #self._player_attack(boss, player)
+        if(player.get_attack2()):
+            if player.collides_with_sprite(boss) and player.get_attack():
+                boss.sub_health()
+                player.set_attack2(False)
+
+        if player.collides_with_sprite(boss) and boss.get_health() <= 0:
+                player.set_game_over()
+
 
     def _handle_wall_bounce(self, enemy):
         enemy_x = enemy.center_x
@@ -74,7 +83,7 @@ class Collisions(Action):
             if(player.get_attack() and abs(enemy_x - player_x) < constants.RANGE and abs(enemy_y - player_y) < constants.RANGE):
             #if(player.get_attack() and player.collides_with_sprite(enemy)):
                 enemy.sub_health()
-                print("attack")
+                #print("attack")
                 player.set_attack2(False)
 
                 #designed to make the enemy sort of bounce back after getting hit
@@ -92,7 +101,7 @@ class Collisions(Action):
                     enemy.change_y = 0
                     enemy.center_y -= 20"""
                
-    def _enemy_collision(self, enemy, player, walls):
+    def _enemy_collision(self, enemy, player, walls, tracking):
         enemy_x = enemy.center_x
         enemy_y = enemy.center_y
         player_x = player.center_x
@@ -115,20 +124,20 @@ class Collisions(Action):
                     enemy.change_y = 0
                     enemy.center_y -= 10
         else:
-            if enemy_x > player_x and abs(enemy_x - player_x) < constants.TRACKING and abs(enemy_y - player_y) < constants.TRACKING:
+            if enemy_x > player_x and abs(enemy_x - player_x) < tracking and abs(enemy_y - player_y) < tracking:
                 enemy.change_x_neg()
-            elif enemy_x < player_x and abs(enemy_x - player_x) < constants.TRACKING and abs(enemy_y - player_y) < constants.TRACKING:
+            elif enemy_x < player_x and abs(enemy_x - player_x) < tracking and abs(enemy_y - player_y) < tracking:
                 enemy.change_x_pos()
             else:
                 enemy.change_x = 0
 
-            if enemy_y > player_y and abs(enemy_y - player_y) < constants.TRACKING and abs(enemy_x - player_x) < constants.TRACKING:
+            if enemy_y > player_y and abs(enemy_y - player_y) < tracking and abs(enemy_x - player_x) < tracking:
                 enemy.change_y_neg()
-            elif enemy_y < player_y and abs(enemy_y - player_y) < constants.TRACKING and abs(enemy_x - player_x) < constants.TRACKING:
+            elif enemy_y < player_y and abs(enemy_y - player_y) < tracking and abs(enemy_x - player_x) < tracking:
                 enemy.change_y_pos()
             else:
                 enemy.change_y = 0
         
-        
+   
         
     

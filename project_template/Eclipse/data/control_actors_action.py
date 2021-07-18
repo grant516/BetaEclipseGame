@@ -30,6 +30,7 @@ class ControlActorsAction(Action):
         player = cast["player"][0] # there's only one in the cast
         attack = self._input_service.get_attack()
         if(attack):
+            #print(f"x = {player.center_x} and y = {player.center_y}")
             player.set_attack(True)
         player.change_x = direction.get_x()
         player.change_y = direction.get_y()

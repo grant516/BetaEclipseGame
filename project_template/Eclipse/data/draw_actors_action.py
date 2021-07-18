@@ -40,4 +40,7 @@ class DrawActorsAction(Action):
         player = cast["player"][0] # there's only one
         self._output_service.draw_actor(player)
 
+        boss = cast["boss"][0] # there's only one
+        self._output_service.draw_actor(boss)
+
         self._output_service.flush_buffer()

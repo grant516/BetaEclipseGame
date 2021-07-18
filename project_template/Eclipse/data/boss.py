@@ -8,7 +8,7 @@ import random
 
 import arcade
 
-class Enemy(SpriteWithHealth):
+class Boss(SpriteWithHealth):
     """TODO: Implement the Enemy class. It should inherit from Sprite and
     provide two methods in addition to init: bounce_horizontal and
     bounce_vertical. It should also have a center x & y,
@@ -42,16 +42,16 @@ class Enemy(SpriteWithHealth):
             self.cur_health -= constants.PLAYER_ATTACK_POWER
 
     def change_x_neg(self):
-        self.change_x = -constants.ENEMY_SPEED
+        self.change_x = -constants.BOSS_SPEED
 
     def change_y_neg(self):
-        self.change_y = -constants.ENEMY_SPEED
+        self.change_y = -constants.BOSS_SPEED
 
     def change_x_pos(self):
-        self.change_x = constants.ENEMY_SPEED
+        self.change_x = constants.BOSS_SPEED
 
     def change_y_pos(self):
-        self.change_y = constants.ENEMY_SPEED
+        self.change_y = constants.BOSS_SPEED
 
     def change_center_x(self):
         self.center_x = random.randrange(constants.MAP_WIDTH)
