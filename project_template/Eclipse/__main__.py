@@ -6,20 +6,13 @@ from data.collisions import Collisions
 from data.move_actors_action import MoveActorsAction
 from data.arcade_input_service import ArcadeInputService
 from data.arcade_output_service import ArcadeOutputService
-
-from data.director import instruction_view
-
+from data.instruction_view import Instruction_view
 from data.keys import Keys
-
-
-
 from data.player import Player
-from data.brick import Brick
 from data.enemy import Enemy
+from data.boss import Boss
 import arcade
 from arcade import sprite_list
-
-
 
 
 def main():
@@ -29,6 +22,8 @@ def main():
 
     player = Player(constants.PLAYER_IMAGE, 1, 24, 33, 10, 25, 5, constants.PLAYER_MAX_HEALTH)
     cast["player"] = [player]
+
+    
 
     maze_walls = 'Walls'
     wall_list = arcade.SpriteList()
@@ -49,6 +44,19 @@ def main():
         while len(arcade.check_for_collision_with_list(enemy, cast["wall"])) > 0:
             enemy.change_center_x()
             enemy.change_center_y()
+
+
+    boss = Boss(constants.BOSS_1, 1, 75, 33, 10, 75, 5, constants.BOSS_MAX_HEALTH)
+    cast["boss"] = [boss]
+
+    #need to add where the boss will appear
+    #while len(arcade.check_for_collision_with_list(boss, cast["wall"])) > 0:
+    #        boss.change_center_x()
+    #        boss.change_center_y()
+    boss.center_x = 2040
+    boss.center_y = 1415
+    #sets the boss's position
+    
 
     key_list = arcade.SpriteList()
     cast["keys"] = key_list
@@ -72,7 +80,7 @@ def main():
 
     # start the data  
     window = arcade.Window(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, "Eclipse")
-    start_view = instruction_view(cast, script, input_service, output_service)
+    start_view = Instruction_view(cast, script, input_service, output_service)
     window.show_view(start_view)
     arcade.run()
 
