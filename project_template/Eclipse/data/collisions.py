@@ -65,7 +65,7 @@ class Collisions(Action):
                 player.set_attack2(False)
 
         if player.collides_with_sprite(boss) and boss.get_health() <= 0:
-                player.set_game_over()
+                boss.set_game_over()
 
 
     def _handle_wall_bounce(self, enemy):

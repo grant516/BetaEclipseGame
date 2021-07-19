@@ -19,8 +19,8 @@ class Player(SpriteWithHealth):
         #self.center_x = int(constants.MAX_X / 2)
         #self.center_y = int(constants.PLAYER_Y)
 
-        self.center_x = 128
-        self.center_y = 128
+        self.center_x = 768
+        self.center_y = 124
         self._health = 100
         self._game_over = False
         self._attack = False

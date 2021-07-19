@@ -147,9 +147,10 @@ class Director(arcade.View):
         self._cast["wall"].draw()
         self._cue_action("output")
 
-        if self._cast["player"][0].get_game_over():
-            game_over_view = GameOverView(self._cast, self._script, self._input_service, self._output_service)
+        if self._cast["player"][0].get_game_over() or self._cast["boss"][0].get_game_over():
+            game_over_view = GameOverView(self._cast, self._script, self._input_service, self._output_service, self.view_left, self.view_bottom)
             self.window.show_view(game_over_view)
+
         
         self.key_list.draw()
 
