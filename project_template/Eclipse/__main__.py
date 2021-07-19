@@ -41,7 +41,7 @@ def main():
     for i in range(constants.NUM_ENEMY):
         enemy = Enemy(constants.ENEMY_IMAGE, 1, 24, 33, 10, 15, 5, constants.ENEMY_MAX_HEALTH)
         cast["enemy"].append(enemy)
-        while len(arcade.check_for_collision_with_list(enemy, cast["wall"])) > 0:
+        while len(arcade.check_for_collision_with_list(enemy, cast["wall"])) > 0 or (abs(enemy.center_x - player.center_x) < constants.TRACKING and abs(enemy.center_y - player.center_y) < constants.TRACKING):
             enemy.change_center_x()
             enemy.change_center_y()
 

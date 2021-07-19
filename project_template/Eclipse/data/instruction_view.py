@@ -19,7 +19,7 @@ class Instruction_view(arcade.View):
         arcade.start_render()
         arcade.draw_text("ECLIPSE", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+200,
                          arcade.color.WHITE_SMOKE, font_size=35, anchor_x="center")
-        arcade.draw_text("GOAL: GET THOSE KEYS AND HEAD TO THE FINISH LINE... AND UHMM DON'T DIE ", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+150,
+        arcade.draw_text("GOAL: GET THOSE KEYS AND BEAT THE FINAL BOSS... AND UHMM DON'T DIE ", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+150,
                          arcade.color.GOLD, font_size=17, anchor_x="center")
         arcade.draw_text("Attack Enemies: Space bar", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2+100,
                          arcade.color.WHITE, font_size=15, anchor_x="center")

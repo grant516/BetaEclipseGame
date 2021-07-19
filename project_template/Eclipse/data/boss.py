@@ -34,6 +34,8 @@ class Boss(SpriteWithHealth):
 
         self._health = 5
 
+        self._game_over = False
+
     def get_health(self):
         return(self.cur_health)
 
@@ -58,5 +60,11 @@ class Boss(SpriteWithHealth):
 
     def change_center_y(self):
         self.center_y = random.randrange(constants.MAP_HEIGHT)
+
+    def get_game_over(self):
+        return(self._game_over)
+
+    def set_game_over(self):
+        self._game_over = True
 
 
