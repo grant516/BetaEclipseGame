@@ -10,6 +10,7 @@ In order to beat the game the player must collect all of the hidden keys :old_ke
 * Krystiane Otis
 
 ## How to Run the Game
+* The game must be running arcade 2.5.7
 * Open the project template folder
 * Open the Eclipse Folder
 * Open __main__.py
